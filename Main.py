@@ -3,7 +3,7 @@ class Solution:
         res = 0
         def traverse(root):
             nonlocal res
-            if not root: return 1, 0, None, None # this subtree is empty
+            if not root: return 1, 0, None, None
 
             ls, l, ll, lr = traverse(root.left)
             rs, r, rl, rr = traverse(root.right)
@@ -12,7 +12,7 @@ class Solution:
                 size = root.val + l + r
                 res = max(res, size)
                 return 2, size, (ll or root.val), (rr or root.val)
-            return 0, None, None, None # this subtree is not a BST
+            return 0, None, None, None 
 
         traverse(root)
         return res
